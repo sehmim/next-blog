@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable */
 // _app.tsx
 import '@styles/globals.css';
 
@@ -9,15 +9,15 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import { Hydrate } from 'react-query/hydration';
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
-  const [queryClient] = useState(() => new QueryClient());
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <Component {...pageProps} />
-      </Hydrate>
-    </QueryClientProvider>
-  );
+    const [queryClient] = useState(() => new QueryClient());
+    return (
+        <QueryClientProvider client={queryClient}>
+            <Hydrate state={pageProps.dehydratedState}>
+                <ReactQueryDevtools initialIsOpen={false} />
+                <Component {...pageProps} />
+            </Hydrate>
+        </QueryClientProvider>
+    );
 };
 
 export default MyApp;

@@ -1,9 +1,8 @@
-import { IAuthor, IPost } from '@src/models/models'
-import { Flex, FlexEnd } from '@styles/common'
-import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
-
+import { IAuthor, IPost } from '@src/models/models';
+import { Flex, FlexEnd } from '@styles/common';
+import Link from 'next/link';
+import React from 'react';
+import styled from 'styled-components';
 
 const PostEachContainer = styled.div`
     margin: 2rem 4rem;
@@ -13,7 +12,7 @@ const PostEachContainer = styled.div`
     :hover {
         box-shadow: 0 8px 12px 0 rgb(0 0 0 / 10%);
     }
-`
+`;
 
 const PostMetaWrapper = styled.div`
     width: auto;
@@ -23,9 +22,9 @@ const PostMetaWrapper = styled.div`
     color: #7a7a7a;
     font-style: italic;
     font-size: 14px;
-`
+`;
 
-const PostLink = styled.a``
+const PostLink = styled.a``;
 
 export const Title = styled.div`
     margin-top: 0;
@@ -38,46 +37,43 @@ export const Title = styled.div`
         cursor: pointer;
         color: #0076df;
     }
-`
+`;
 
-const Container = styled.div``
+const Container = styled.div``;
 
-const TextBody = styled.div``
+const TextBody = styled.div``;
 
 interface IPostEachProps {
-    post: IPost
+    post: IPost;
 }
 
-export const formatDate = (date: string) => {
-    const dateJS = new Date(date as string).toDateString()
+export const formatDate = (date: string): string => {
+    const dateJS = new Date(date as string).toDateString();
 
-    return dateJS
-}
+    return dateJS;
+};
 
-export const showUpdated = (datePosted: string, dateUpdated: string) => {
+export const showUpdated = (datePosted: string, dateUpdated: string): JSX.Element | undefined => {
     if (formatDate(datePosted) !== formatDate(dateUpdated)) {
-        return <FlexEnd>Last Updated: {formatDate(datePosted as string)}</FlexEnd>
+        return <FlexEnd>Last Updated: {formatDate(datePosted as string)}</FlexEnd>;
     }
-}
+};
 
-export const showAuthor = (authors: IAuthor[]) => {
-
-    let authorsText = ", by ";
+export const showAuthor = (authors: IAuthor[]): string => {
+    let authorsText = ', by ';
 
     authors.map((author, i) => {
-        authorsText += author.name
+        authorsText += author.name;
 
         if (i !== authors.length - 1) {
-            authorsText += ", "
+            authorsText += ', ';
         }
-    })
+    });
 
-    return authorsText
+    return authorsText;
+};
 
-
-}
-
-export const PostMeta = ({ post }: { post: IPost }) => {
+export const PostMeta = ({ post }: { post: IPost }): JSX.Element => {
     return (
         <PostMetaWrapper>
             <Flex justifyContent="space-between">
@@ -89,29 +85,25 @@ export const PostMeta = ({ post }: { post: IPost }) => {
                 {showUpdated(post.createdAt as string, post.updatedAt as string)}
             </Flex>
         </PostMetaWrapper>
-    )
-}
+    );
+};
 
-function PostEach({ post }: IPostEachProps) {
-
+function PostEach({ post }: IPostEachProps): JSX.Element {
     return (
         <PostEachContainer>
             <PostMeta post={post} />
 
             <PostLink>
-                <Link href={"/post/" + post.id}>
+                <Link href={'/post/' + post.id}>
                     <Title>{post.title}</Title>
                 </Link>
             </PostLink>
 
             <Container>
-                <TextBody>
-                    {post.description}
-                </TextBody>
+                <TextBody>{post.description}</TextBody>
             </Container>
         </PostEachContainer>
-    )
+    );
 }
 
-
-export default PostEach
+export default PostEach;

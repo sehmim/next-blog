@@ -1,5 +1,4 @@
-import styled from "styled-components";
-
+import styled from 'styled-components';
 
 export const Wrapper = styled.div``;
 
@@ -9,17 +8,14 @@ export const Container = styled.div`
     box-shadow: 0 8px 12px 0 rgb(0 0 0 / 10%);
 `;
 
-export const FlexEnd = styled.div`
-`;
+export const FlexEnd = styled.div``;
 
 export const Flex = styled.div<any>`
     display: flex;
-    justify-content: ${props => props.justifyContent && props.justifyContent};
-    padding: ${props => props.padding ? props.padding + "px" : null};}; 
+    justify-content: ${(props) => props.justifyContent && props.justifyContent};
+    padding: ${(props) => (props.padding ? props.padding + 'px' : null)};}; 
     
-    ${props => props.flexDirection &&
-        'flex-direction: ' + props.flexDirection
-    }; 
+    ${(props) => props.flexDirection && 'flex-direction: ' + props.flexDirection}; 
 `;
 
 export const Button = styled.button`
@@ -40,7 +36,7 @@ export const Button = styled.button`
         opacity: 1;
         border-bottom: 2px solid #444;
     }
-`
+`;
 
 export const TitleSub = styled.h4`
     margin-top: 0;
@@ -59,15 +55,6 @@ export const Capsule = styled.span``;
 export const Avatar = styled.img`
     height: 64px;
     aspect-ratio: auto 64 / 64;
-    width: 64px;   
+    width: 64px;
     border: 1px solid;
 `;
-
-
-
-
-
-
-
-
-
