@@ -26,16 +26,16 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier', 'import', 'jsx-a11y'],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': 'off',
     'import/extensions': 'off',
     'import/no-unresolved': 'error',
-	"no-use-before-define": "off",
-	"jsx-a11y/anchor-is-valid": 'off',
-	"@typescript-eslint/no-use-before-define": ["error"],
+    "no-use-before-define": "off",
+    "jsx-a11y/anchor-is-valid": 'off',
+    "@typescript-eslint/no-use-before-define": ["off"],
     'import/order': [
-      'error',
+      'off',
       {
         groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'object', 'index']],
         pathGroups: [
@@ -54,7 +54,7 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': [
-      'error',
+      'off',
       { devDependencies: ['jest.setup.ts', '**/*.test.tsx', '**/*.spec.tsx', '**/*.test.ts', '**/*.spec.ts'] },
     ],
   },
