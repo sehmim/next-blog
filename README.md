@@ -2,12 +2,33 @@
 
 # Getting Started
 
-First, run the development server:
+- Clone the repo
+- Add an .env.local
 
 ```
-npm run dev
-# or
-yarn dev
+    API_URL=https://6144e843411c860017d256f0.mockapi.io/api/v1/posts
+    NEXT_PUBLIC_API_URL=https://6144e843411c860017d256f0.mockapi.io/api/v1/posts
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+
+- Install dependency then start the server
+
+```
+    yarn
+    yarn dev
+```
+
+- Open http://localhost:3000 with your browser to see the result.
+
+
+- Test cases 
+```
+    yarn test
+```
+
+- E2E test cases
+```
+    yarn test:e2e
+```
+
+

@@ -8,6 +8,7 @@
         "start": "next start",
         "test": "jest",
         "test:watch": "jest --watch",
+        "test:e2e": "jest src/e2e/__test__/*.ts",
         "test:coverage": "jest --coverage",
         "format": "prettier --check --ignore-path .gitignore .",
         "format:fix": "prettier --write --ignore-path .gitignore ."
@@ -28,6 +29,7 @@
         "@testing-library/user-event": "^13.2.0",
         "@types/jest": "^26.0.24",
         "@types/node": "^16.4.1",
+        "@types/puppeteer": "^5.4.5",
         "@types/react": "^17.0.14",
         "@types/react-dom": "^17.0.9",
         "@types/styled-components": "^5.1.25",
@@ -48,6 +50,7 @@
         "jest-environment-jsdom": "^27.0.6",
         "postcss-preset-env": "^7.4.3",
         "prettier": "^2.3.2",
+        "puppeteer": "^13.5.2",
         "tailwindcss": "^3.0.23",
         "ts-node": "^10.1.0",
         "typescript": "^4.3.5"
