@@ -35,7 +35,7 @@ const Home: FC = () => {
                         className={styles.logo}
                     />
                 </a>
-                <a href="https://github.com/sehmim" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/sehmim/next-blog" target="_blank" rel="noopener noreferrer">
                     {' '}
                     <img src="http://cdn.onlinewebfonts.com/svg/img_326384.png" alt="Vercel Logo" className={styles.logo} />
                 </a>

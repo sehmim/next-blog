@@ -125,10 +125,9 @@ const Authors = ({ authors }: { authors: IAuthor[] }): JSX.Element => {
 };
 
 export async function getPostById(id: string): Promise<IPost> {
-    // TODO: Move to .env
-    const API_URI = `https://6144e843411c860017d256f0.mockapi.io/api/v1/posts/${id}`;
+    const API_URL: RequestInfo = process.env.NEXT_PUBLIC_API_URL as string;
 
-    const res = await fetch(API_URI);
+    const res = await fetch(API_URL + `/${id}`);
     const blogs: IPost = await res.json();
     return blogs;
 }

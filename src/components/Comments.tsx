@@ -1,8 +1,8 @@
 import { IComment } from '@src/models/models';
+import { formatDate } from '@src/utils/helpers';
 import { TitleSub } from '@styles/common';
-import React from 'react';
+import React, { Key } from 'react';
 import styled from 'styled-components';
-import { formatDate } from './PostEach';
 
 const Wrapper = styled.div``;
 
@@ -39,9 +39,9 @@ function Comments({ comments }: { comments: IComment[] }): JSX.Element {
     return (
         <Wrapper>
             <TitleSub>Comments</TitleSub>
-            {comments.map((comment) => {
+            {comments.map((comment, id: Key) => {
                 return (
-                    <CommentContainer>
+                    <CommentContainer key={id}>
                         <CommentSubText>{formatDate(comment.createdAt as string)}</CommentSubText>
                         <CommentTitle>{comment.title}</CommentTitle>
                         <CommentDescription>{comment.description}</CommentDescription>

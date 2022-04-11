@@ -1,5 +1,5 @@
-import { getPosts } from '@pages/post';
 import { IPost } from '@src/models/models';
+import { getPosts } from '@src/services/controllers';
 import { Flex, TextBody } from '@styles/common';
 import Link from 'next/link';
 import React from 'react';
@@ -28,7 +28,7 @@ function RelatedPosts({ currentPost }: { currentPost: IPost }): JSX.Element {
     });
 
     if (isLoading) {
-        return <div>loading...</div>;
+        return <div data-testid="loading">loading...</div>;
     }
 
     const suggestedPosts = posts && posts.filter((post) => post.id != currentPost.id).slice(0, 3);
@@ -40,7 +40,7 @@ function RelatedPosts({ currentPost }: { currentPost: IPost }): JSX.Element {
             <Flex flexDirection={'row'} justifyContent={'space-between'}>
                 {suggestedPosts?.map((post) => {
                     return (
-                        <RelatedPostsContainer>
+                        <RelatedPostsContainer data-testid="relatedPosts">
                             <RelatedPostsEach>
                                 <Link href={'/post/' + post.id}>
                                     <Title>{post.title}</Title>

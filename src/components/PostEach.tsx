@@ -1,4 +1,5 @@
-import { IAuthor, IPost } from '@src/models/models';
+import { IPost } from '@src/models/models';
+import { formatDate, showAuthors } from '@src/utils/helpers';
 import { Flex, FlexEnd } from '@styles/common';
 import Link from 'next/link';
 import React from 'react';
@@ -47,32 +48,6 @@ interface IPostEachProps {
     post: IPost;
 }
 
-export const formatDate = (date: string): string => {
-    const dateJS = new Date(date as string).toDateString();
-
-    return dateJS;
-};
-
-export const showUpdated = (datePosted: string, dateUpdated: string): JSX.Element | undefined => {
-    if (formatDate(datePosted) !== formatDate(dateUpdated)) {
-        return <FlexEnd>Last Updated: {formatDate(datePosted as string)}</FlexEnd>;
-    }
-};
-
-export const showAuthor = (authors: IAuthor[]): string => {
-    let authorsText = ', by ';
-
-    authors.map((author, i) => {
-        authorsText += author.name;
-
-        if (i !== authors.length - 1) {
-            authorsText += ', ';
-        }
-    });
-
-    return authorsText;
-};
-
 export const PostMeta = ({ post }: { post: IPost }): JSX.Element => {
     return (
         <PostMetaWrapper>
@@ -80,9 +55,9 @@ export const PostMeta = ({ post }: { post: IPost }): JSX.Element => {
                 <FlexEnd>
                     Posted Date: {formatDate(post.createdAt as string)}
                     by
-                    {showAuthor(post.authors)}
+                    {showAuthors(post.authors)}
                 </FlexEnd>
-                {showUpdated(post.createdAt as string, post.updatedAt as string)}
+                <FlexEnd>Last Updated: {formatDate(post.updatedAt as string)}</FlexEnd>
             </Flex>
         </PostMetaWrapper>
     );
